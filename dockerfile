@@ -63,11 +63,11 @@ RUN apt-get update && apt-get install -y \
     libicu-dev \
     libzip-dev \
     libxml2-dev \
-    libxslt-dev \ 
-    libfreetype6-dev \      
-    libjpeg62-turbo-dev \   
+    libxslt-dev \
+    libfreetype6-dev \
+    libjpeg62-turbo-dev \
     libpng-dev \
-    libonig-dev \               
+    libonig-dev \
     libfreetype6 \
     libjpeg62-turbo \
     libxml2 \
