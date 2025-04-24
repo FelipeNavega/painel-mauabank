@@ -54,9 +54,6 @@ Thumbs.db
 /public/js/filament/widgets/components/*.js
 /public/livewire/*.js
 
-# Bancos de dados SQL grandes
-/database/municipios_estados_BR.sql
-
 # Arquivos de dependências
 composer.lock
 
