@@ -92,6 +92,10 @@ COPY docker/nginx/default.conf /etc/nginx/conf.d/default.conf
 
 WORKDIR /var/www/html
 
+# Ajustar permissões para toda a aplicação (não apenas storage e bootstrap/cache)
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 755 /var/www/html
+
 RUN apt-get update && apt-get install -y \
     procps \
     net-tools \

@@ -12,9 +12,7 @@ use Exception;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
+
     public function run(): void
     {
         // Executa arquivo SQL de municípios e estados
