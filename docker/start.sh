@@ -25,15 +25,12 @@ else
     echo "❌ artisan não existe!"
 fi
 
-echo "Verificando .env:"
-if [ -f /var/www/html/.env ]; then
-    echo "✅ .env existe"
-    chmod 777 /var/www/html/.env
-else
-    echo "❌ .env não existe, criando..."
-    cp /var/www/html/.env.example /var/www/html/.env 2>/dev/null || echo "<?php // Este é um arquivo .env temporário" > /var/www/html/.env
-    chmod 777 /var/www/html/.env
-fi
+# Verifica variáveis de ambiente do Laravel
+echo "===== VARIÁVEIS DE AMBIENTE DO LARAVEL ====="
+echo "APP_NAME: ${APP_NAME:-Não definido}"
+echo "APP_ENV: ${APP_ENV:-Não definido}"
+echo "APP_DEBUG: ${APP_DEBUG:-Não definido}"
+echo "APP_URL: ${APP_URL:-Não definido}"
 
 # Verifica pasta public e index.php
 echo "===== VERIFICAÇÃO DE PUBLIC ====="
