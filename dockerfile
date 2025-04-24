@@ -108,10 +108,8 @@ RUN mkdir -p /var/log/php-fpm && \
     touch /var/log/php-fpm.log && \
     chown -R www-data:www-data /var/log/php-fpm
 
-# Ajustar permissões - MOVIDO PARA DEPOIS DA CÓPIA DA APLICAÇÃO
-RUN chown -R www-data:www-data /var/www/html \
-    && chmod -R 755 /var/www/html \
-    && chown -R www-data:www-data storage bootstrap/cache \
+# Ajustar permissões
+RUN chown -R www-data:www-data storage bootstrap/cache \
     && chmod -R 775 storage bootstrap/cache
 
 # Verificar a configuração do PHP-FPM
