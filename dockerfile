@@ -92,10 +92,6 @@ COPY docker/nginx/default.conf /etc/nginx/conf.d/default.conf
 
 WORKDIR /var/www/html
 
-# Ajustar permissões para toda a aplicação (não apenas storage e bootstrap/cache)
-RUN chown -R www-data:www-data /var/www/html \
-    && chmod -R 755 /var/www/html
-
 RUN apt-get update && apt-get install -y \
     procps \
     net-tools \
@@ -112,8 +108,10 @@ RUN mkdir -p /var/log/php-fpm && \
     touch /var/log/php-fpm.log && \
     chown -R www-data:www-data /var/log/php-fpm
 
-# Ajustar permissões
-RUN chown -R www-data:www-data storage bootstrap/cache \
+# Ajustar permissões - MOVIDO PARA DEPOIS DA CÓPIA DA APLICAÇÃO
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 755 /var/www/html \
+    && chown -R www-data:www-data storage bootstrap/cache \
     && chmod -R 775 storage bootstrap/cache
 
 # Verificar a configuração do PHP-FPM
